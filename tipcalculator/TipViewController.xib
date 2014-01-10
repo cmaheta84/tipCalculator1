@@ -56,7 +56,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdL-0a-J0N">
-                    <rect key="frame" x="248" y="220" width="52" height="21"/>
+                    <rect key="frame" x="236" y="220" width="64" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -69,15 +69,29 @@
                         <segment title="15%"/>
                         <segment title="20%"/>
                     </segments>
+                    <connections>
+                        <action selector="onMyTap:" destination="-1" eventType="valueChanged" id="e76-6r-SzS"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="QxX-hn-3Ye" appends="YES" id="Kb7-fv-R1I"/>
+                <outletCollection property="gestureRecognizers" destination="QxX-hn-3Ye" appends="YES" id="wOP-1f-Yqk"/>
+                <outletCollection property="gestureRecognizers" destination="fru-c9-xo7" appends="YES" id="1cz-pP-eLD"/>
+            </connections>
         </view>
         <tapGestureRecognizer id="QxX-hn-3Ye">
             <connections>
                 <action selector="onTap:" destination="-1" id="2Ip-So-Iyb"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="fru-c9-xo7">
+            <connections>
+                <action selector="onMyTap:" destination="-1" id="nl9-rK-fFe"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
