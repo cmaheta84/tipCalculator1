@@ -7,13 +7,14 @@
 //
 
 #import "TipViewController.h"
-
+#import "SettingsViewController.h"
 @interface TipViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
 - (IBAction)onTap:(id)sender;
+- (IBAction)onSettings:(id)sender;
 
 - (IBAction)onMyTap:(id)sender;
 - (void) updateValues;
@@ -34,6 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int percentage = [defaults integerForKey:@"percentage"];
+    self.tipControl.selectedSegmentIndex = percentage;
+     //setSelectedSegmentIndex:(percentage)];
     [self updateValues];
     // Do any additional setup after loading the view from its nib.
 }
@@ -47,6 +52,10 @@
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (IBAction)onSettings:(id)sender {
+    [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:YES];
 }
 
 - (IBAction)onMyTap:(id)sender {
